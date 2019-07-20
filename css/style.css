@@ -1,0 +1,636 @@
+* {
+  color: #222222;
+}
+
+body {
+  margin: 0;
+  position: relative;
+}
+
+.navMenu {
+  font-size: 18px;
+  position: relative;
+}
+
+.backdrop {
+  overflow: hidden;
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+}
+
+.hero {
+  background-image: url('../res/hero.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.content {
+  margin-top: 50px;
+}
+
+.hero-content {
+  width: 100%;
+  display: flex;
+  height: 85vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content blockquote {
+  width: 60%;
+}
+
+.hero-content h1 {
+  color: #FFFFFF;
+}
+
+blockquote footer {
+  text-align: end;
+  font-size: 22px;
+  color: #FFFFFF;
+}
+
+.meet {
+  display: flex;
+  background-color: #ABD0DA;
+  padding: 30px;
+
+}
+
+
+
+
+.profile {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilePhoto {
+  width: 100%;
+  max-width: 450px;
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
+  border-radius: 25px;
+}
+
+.bio {
+  flex: 1 0 auto;
+  margin: 20px;
+  max-width: 50%;
+}
+
+.bio .bioTitle {
+  text-decoration: underline;
+  text-align: center;
+  margin-top: 0;
+}
+
+.bio .bioSubtitle {
+  text-align: center;
+}
+
+.bio p {
+  word-wrap: break-word;
+  /* padding: 0px 30px; */
+}
+
+@media screen and (max-width: 400px) {
+  .meet {
+    flex-direction: column;
+  }
+
+  .bio, .profile {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.practiceAreas {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  padding: 30px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.practiceAreas h2 {
+  text-align: center;
+  font-size: 4rem;
+  font-family: 'Dancing Script', cursive;
+  margin: 0;
+}
+
+.practiceAreas .areas {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+  align-items: space-between;
+  justify-content: center;
+}
+
+.practiceAreas .areas>.area {
+  display: flex;
+  flex: 1 0 290px;
+  max-width: 290px;
+  height: 320px;
+  background: #F7F7F7;
+  border-radius: 2px;
+  flex-direction: column;
+  margin: 0 30px 30px 0;
+  position: relative;
+}
+
+.areaImage {
+  width: 100%;
+  height: 200px;
+  background-color: lightgray;
+}
+
+.areaEatingConcerns {
+  background: url('../res/eatingconcerns.jpg') no-repeat ;
+  background-size: 100% 119%;
+
+}
+
+.areaLifestyle {
+  background: url('../res/lifestyle2.jpg') no-repeat;
+  background-size: cover;
+
+}
+
+.areaMedicalProblems {
+  background: url('../res/medicalproblems.jpg') no-repeat;
+  background-size: 100% 120%;
+
+}
+
+.areaRelationships {
+  background: url('../res/relationships.jpg')  no-repeat;
+  background-size: cover;
+
+}
+
+.areaStress {
+  background: url('../res/stressmanagement.jpg') no-repeat ;
+  background-size: cover;
+
+}
+
+.areaTransitions {
+  background: url('../res/transitions.jpg') no-repeat ;
+  background-size: cover;
+}
+
+.areaText {
+  font-size: 30px;
+  height: 120px;
+  max-height: 120px;
+}
+
+.areaText div {
+  margin-left: 42px;
+  margin-top: 12px;
+}
+
+.areaOverlay {
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 2px;
+  position: absolute;
+  width: 230px;
+  height: 260px;
+  margin: 30px;
+}
+
+.services {
+  height: 400px;
+  background-color: #FBEEC1;
+  display: flex;
+}
+
+.servicesDescription {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.servicesImage {
+  width: 50%;
+  background: url('../res/services.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 400px) {
+  .servicesDescription {
+    width: 100%;
+  }
+  .servicesImage {
+    width: 0%;
+    display: none;
+  }
+
+  .hero-content blockquote h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-content blockquote footer {
+    font-size: 1.25rem;
+  }
+}
+
+.button {
+  display: inline-block;
+  border: none;
+  border-radius: 2px;
+  margin: 0;
+  text-decoration: none;
+  background: #9FEDD7;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 200ms ease-in-out, transform 100ms ease;
+  -webkit-appearance: none;
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.button:hover {
+  background: rgb(178, 233, 217);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.readMore {
+  display: flex;
+  justify-content: center;
+}
+
+.classes {
+  display: flex;
+  justify-content: center;
+  background: #FFFFFF;
+  padding: 30px;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+
+.contact {
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.contact form {
+  margin-top: 30px;
+}
+
+
+.group {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+input,
+textarea {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 300px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+
+input:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus~label,
+input:valid~label {
+  top: -20px;
+  font-size: 14px;
+  color: #5264AE;
+}
+
+textarea {
+  resize: none;
+  padding: 0;
+}
+
+textarea:focus ~label,
+textarea:valid ~label {
+  top: -20px;
+  font-size: 14px;
+  color: #5264AE;
+}
+
+/* TODO learn this */
+
+/* BOTTOM BARS ================================= */ 
+.bar {
+  position: relative;
+  display: block;
+  width: 300px;
+}
+
+.bar:before,
+.bar:after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264AE;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+
+/* active state */
+input:focus~.bar:before,
+input:focus~.bar:after {
+  width: 50%;
+}
+
+/* active state */
+textarea:focus~.bar:before,
+textarea:focus~.bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+input:focus~.highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* active state */
+textarea:focus~.highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+@keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #EDEAE5;
+  padding: 30px;
+}
+
+.footer > div {
+  height: 65px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer > div > span {
+  text-align: right;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.footer > div > span:hover {
+  filter: brightness(1.2);
+}
+
+
+.link:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -2px;
+  left: 0;
+  background: #EDEAE5;
+  visibility: hidden;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: .25s linear;
+}
+
+.link:hover:before,
+.link:focus:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.navMenu:before {
+  bottom: -5px !important;
+}
+
+.moreServices {
+  background: center / cover no-repeat url('../res/succulentBurst.jpg');
+}
+
+.moreClasses {
+  background: center / cover no-repeat url('../res/moreClasses.jpg');
+}
+
+.moreResources {
+  background: center / cover no-repeat url('../res/moreResources.jpg');
+}
+
+
+
+/* 
+.about {
+  background-image: url('../res/about.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.help {
+  background-image: url('../res/help.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.services {
+  background-image: url('../res/services.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.classes {
+  background-image: url('../res/classes.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contact {
+  background-image: url('../res/contact.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.resources {
+  background-image: url('../res/resources.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 26px;
+}
+
+.navMenu:hover {
+  filter: brightness(1.2);
+}
+
+.page-title {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.page-title .title {
+  font-size: 4rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.card {
+  background: #F7F7F7;
+  border-radius: 2px;
+  margin: 50px 15%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+  min-width: 100px;
+}
+
+.card * {
+  color: #222222;
+}
+
+.card-body {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  min-height: 100px;
+  padding: 20px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  padding: 20px;
+  border-bottom: 1px solid #222222;
+  height: 100%;
+}
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-4 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.card-5 {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.background {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
