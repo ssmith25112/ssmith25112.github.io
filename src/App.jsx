@@ -19,7 +19,7 @@ export class App extends React.Component {
 
   componentDidMount() {
     const width = window.innerWidth;
-    if (width > 750) {
+    if (width > 800) {
       this.setState({ showDrawer: false });
     } else {
       this.setState({
@@ -34,12 +34,12 @@ export class App extends React.Component {
         showHamburger
       } = this.state;
 
-      if (width > 750 && showHamburger) {
+      if (width > 800 && showHamburger) {
         this.setState({
           showDrawer: false,
           showHamburger: false
         });
-      } else if (width < 750 && !showHamburger) {
+      } else if (width < 800 && !showHamburger) {
         this.setState({
           showHamburger: true
         });
@@ -177,12 +177,9 @@ class Body extends React.Component {
       'hide': !showDrawer
     });
 
-    const onDrawerMeetClick = () => {
-      this.props.onNav({ name: 'home', scrollTo: 'meet', dock: true });
-    }
 
     const onDrawerPracticeClick = () => {
-      this.props.onNav({ name: 'home', scrollTo: 'practice', dock: true });
+      this.props.onNav({ name: 'practice', scrollTo: 0, dock: true });
     }
 
     const onDrawerServicesClick = () => {
@@ -194,18 +191,27 @@ class Body extends React.Component {
     }
 
     const onDrawerClassesClick = () => {
-      this.props.onNav({ name: 'classes', scrollTo: 0, dock: true })
+      this.props.onNav({ name: 'classes', scrollTo: 0, dock: true });
+    }
+
+    const onDrawerDocumentsClick = () => {
+      this.props.onNav({ name: 'docs', scrollTo: 0, dock: true })
+    }
+
+    const onDrawerResourcesClick = () => {
+      this.props.onNav({ name: 'resources', scrollTo: 0, dock: true })
     }
 
     return (
       <React.Fragment>
         <div className={classes}>
-          <Drawer 
-            handleMeetClick={onDrawerMeetClick}
+          <Drawer
             handleContactClick={onDrawerContactClick}
             handleServicesClick={onDrawerServicesClick}
             handlePracticeClick={onDrawerPracticeClick}
             handleClassesClick={onDrawerClassesClick}
+            handleDocumentsClick={onDrawerDocumentsClick}
+            handleResourcesClick={onDrawerResourcesClick}
           />
         </div>
         <div className={overlayClasses} onClick={this.handleDrawerOverlayClick}>
@@ -220,7 +226,7 @@ class Body extends React.Component {
     } = this.props;
 
     const bodyStyle = {
-      minHeight: `calc(100vh - 125px)`
+      minHeight: `calc(100vh - 60px)`
     };
 
     const n = page.name;
@@ -318,15 +324,8 @@ const Header = (props) => {
         Stephanie Smith, Psy.D.
       </div>
       <div
-        onClick={() => onNav({ name: 'home', scrollTo: 'meet' })}
-        className={cn('navMenu', 'link', { 'navMenu--active': active === 'help' })}
-        style={menuStyle}
-      >
-        Meet Dr. Smith
-      </div>
-      <div
-        onClick={() => onNav({ name: 'home', scrollTo: 'practice' })}
-        className={cn('navMenu', 'link', { 'navMenu--active': active === 'help' })}
+        onClick={() => onNav({ name: 'practice', scrollTo: 0 })}
+        className={cn('navMenu', 'link', { 'navMenu--active': active === 'practice' })}
         style={menuStyle}
       >
         Practice Areas
@@ -346,11 +345,25 @@ const Header = (props) => {
         Classes
       </div>
       <div
+        onClick={() => onNav({ name: 'docs', scrollTo: 0 })}
+        className={cn('navMenu', 'link', { 'navMenu--active': active === 'docs' })}
+        style={menuStyle}
+      >
+        Documents
+      </div>
+      <div
         onClick={() => onNav({ name: 'home', scrollTo: 'contact' })}
         className={cn('navMenu', 'link', { 'navMenu--active': active === 'contact' })}
         style={menuStyle}
       >
         Contact
+      </div>
+      <div
+        onClick={() => onNav({ name: 'resources', scrollTo: 0 })}
+        className={cn('navMenu', 'link', { 'navMenu--active': active === 'resources' })}
+        style={menuStyle}
+      >
+        Resources
       </div>
     </div>
   );
@@ -364,31 +377,16 @@ const Footer = (props) => {
     <div
       className='footer'
     >
-      <div>
-        <div
-        >
-          Stephanie Smith, Psy.D.
-        </div>
-        <div>
-          801 Alhambra Blvd,<br />
-          Suite 2B Sacramento, CA 95816
-        </div>
-        <div
-        >
-          (916) 399-3615
-        </div>
-      </div>
-      <div>
-        <span className='link'
-          onClick={() => onNav({ name: 'resources', scrollTo: 0 })}
-        >Additional Resources</span>
-        <span className='link'
-          onClick={() => onNav({ name: 'docs', scrollTo: 0 })}>Client Documents</span>
-        <span className='link'
-          onClick={() => onNav({ name: 'fees', scrollTo: 0 })}
-        >Fees for Services</span>
-      </div>
-    </div>
+      <span>
+        Stephanie Smith, Psy.D.
+      </span>
+      <span id='address'>
+        801 Alhambra Blvd, Suite 2B Sacramento, CA 95816
+      </span>
+      <span>
+        (916) 399-3615
+      </span>
+    </div >
   );
 };
 
@@ -470,7 +468,7 @@ const Home = (props) => {
               <div className='areaImage areaMedicalProblems' />
               <div className='areaText'>
                 <div>
-                  Medical<br /> Problems
+                  Health<br /> Difficulties
                   </div>
               </div>
             </div>
@@ -490,44 +488,6 @@ const Home = (props) => {
             </button>
           </div>
         </div>
-        {/* <div className='services card-2' id='services'>
-          <div className='servicesDescription'>
-            <h2>
-              Services
-              </h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In auctor bibendum quam at efficitur. Sed pharetra id velit nec elementum. Morbi tincidunt sapien nisi, nec porttitor augue semper ac. Vestibulum pulvinar cursus urna, id varius mauris pellentesque in. Aenean ac neque purus. Sed egestas consectetur ipsum. Cras non semper ligula, quis suscipit odio. Cras dictum pharetra auctor.
-              </p>
-            <div className='readMore' style={{ marginTop: 'auto', justifyContent: 'flex-start' }}>
-              <button
-                className='button'
-                onClick={() => onNav({ name: 'services', scrollTo: 0 })}
-              >
-                READ MORE
-              </button>
-            </div>
-          </div>
-          <div className='servicesImage'>
-          </div>
-        </div> */}
-        {/* <div className='classes' id='classes'>
-          <div className='classesDescription'>
-            <h2>
-              Mood & Food
-              </h2>
-            <p>
-              Get in my belly
-              </p>
-            <div className='readMore' style={{ marginTop: 'auto', justifyContent: 'flex-start' }}>
-              <button
-                className='button'
-                onClick={() => onNav({ name: 'classes', scrollTo: 0 })}
-              >
-                READ MORE
-              </button>
-            </div>
-          </div>
-        </div> */}
         <div className='contact card-2' id='contact'>
           <h2>Change begins today</h2>
           <h3>Request a consultation</h3>
@@ -658,7 +618,7 @@ const Fees = () => {
 
 const meetSteph = (
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus elit eget orci pellentesque, nec finibus dolor laoreet. Etiam enim ex, sodales id tortor vel, vestibulum vehicula velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer vitae ipsum et mi semper aliquam. Vivamus eget gravida sem, et consectetur elit. Vivamus ut consequat magna. Maecenas in justo maximus, mattis nisl vitae, venenatis elit. Integer eu ipsum massa. Sed sagittis lacus vel cursus tempor. Cras id egestas turpis.
+    Welcome and Thank you for visiting! This is a place to explore the possibility of change for a better tomorrow. There is no “one size fits all” approach to our time together and I work collaboratively with my clients to create an environment of respect and compassion that can be applied to renew their lives. Therapy has the power to both soothe and transform and I use techniques of one-on-one therapy and classes to spark meaningful and lasting change. I am known by my clients as being down to earth, genuine, and relatable. I look forward to partnering together to build your healthier tomorrow.
   </p>
 );
 
@@ -684,9 +644,9 @@ const practiceAreas = (
     <p>
       Romantic, family, social, and occupational relationships can all be sources of significant pleasure and consequently, significant pain. There are a multitude of reasons relationships can become troubled. Many of the roots of these reasons can be traced to communication clarity. While we cannot change other people, we can identify personal qualities in ourselves that we wish to change for the wellbeing of a current or future relationship. Working towards identifying these areas, creating mindful awareness around them, and making values based changes can provide both personal benefits and improvements to the relationship. We can work together to identify and optimize these changes in a compassionate and respectful environment while prioritizing effective and clear communication as the cornerstone to improved relationships.
 </p>
-    <h3>Medical Problems</h3>
+    <h3>Health Difficulties</h3>
     <p>
-      There is no doubt that our physical wellbeing impacts our psychological wellbeing and vice versa. Whether you are looking for support in improving your management of a medical problem, handling the stress around it, or believe there may be lifestyle changes that will reverse the condition, I would be happy to support this aspect of your health. I am a trained health psychologist and work regularly with both chronic and acute medical conditions. I have personal and professional experience with the impacts physical health can have not only on oneself, but also on those around us. I believe support can make a substantive difference in managing a health concern as well as the emotional and social impacts of this. I will work with you to accept those realities that are unchanging as well as recognize opportunities for positive growth.
+      There is no doubt that our physical wellbeing impacts our psychological wellbeing and vice versa. Whether you are looking for support in improving your management of a health difficulty, handling the stress around it, or believe there may be lifestyle changes that will reverse the condition, I would be happy to support this aspect of your health. I am a trained health psychologist and work regularly with both chronic and acute medical conditions. I have personal and professional experience with the impacts physical health can have not only on oneself, but also on those around us. I believe support can make a substantive difference in managing a health concern as well as the emotional and social impacts of this. I will work with you to accept those realities that are unchanging as well as recognize opportunities for positive growth.
 </p>
     <h3>Exceptions to the above</h3>
     <p>
@@ -697,45 +657,73 @@ const practiceAreas = (
 
 const services = (
   <React.Fragment>
-    <p>
-      I provide both individual therapy appointments as well as classes.
-    </p>
+    <h3 style={{textAlign: 'center'}}>
+      What to Expect
+    </h3>
     <h3>Telephone Consult</h3>
     <p>
-      As our first contact for either of these services I offer a complementary 15-minute phone consultation. This is an opportunity for us to connect about the issues that bring you into care, and to determine whether working together is the best fit for your needs. I can answer any questions that you may have about coming into care and set up your first appointment or class.<br />
-      {/* <i>15-min initial telephone consult&#x2014; free of charge</i> */}
+      As our first contact for either individual therapy or classes I offer a complementary 15-minute phone consultation. This is an opportunity for us to connect about the issues that bring you into care, and to determine whether working together is the best fit for your needs. I can answer any questions that you may have about coming into care and set up your first appointment or class.       
+      <br />
+      <i>15-min initial telephone consult&#x2014; free</i>
     </p>
     <h3>Initial Appointment</h3>
     <p>
       An initial individual therapy appointment is a 60-minute appointment. During this appointment I will review your complete intake form with you to ensure that I have an appropriate understanding of some of your history, what brings you into care, and your goals for our work together. We will also use this appointment to create some initial goals for care and to set up our expectations for treatment.
       <br />
-      {/* <i>60-min initial individual appointment&#x2014; $150 *</i> */}
+    <i>60-min initial individual appointment&#x2014; $150</i>
     </p>
     <h3>Return Appointments</h3>
     <p>
       Return appointments are 50-minute appointments. During return appointments we will work together on your goals and I will support you through the process. We will regularly check in about the progress of care and make adjustments as needed to ensure that we are working effectively together.
       <br />
-      {/* <i>50-min return individual appointment&#x2014; $150 *</i> */}
+      <i>50-min return individual appointment&#x2014; $150</i>
     </p>
     <h3>Classes</h3>
     <p>
       Classes are 90 minutes in length. Due to space needed, classes are held at a nearby location separate from the main therapy office. More information about class and class content can be found under the "Classes" tab. Though classes take place over 4 sessions, the full fee must be paid in advance of the first session. After this payment, no additional charges are incurred for the remainder of the classes unless an additional service is requested or provided.
       <br />
-      {/* <i>4-session (360-min) class series&#x2014; $160 *</i> */}
+      <i>4-session (360-min) class series&#x2014; $160</i>
     </p>
     <h3>TeleMental Health</h3>
     <p>
       On occasion it may be indicated for us to engage in tele-health either over the phone or through video communication. These services are offered to individuals only after they have been initially established in-person through at least one in-person appointment. Due to licensing requirements, I am unable to provide these services to anyone out-of-state or country at the time of service. There are a variety of platforms available for this service and, though convenient, it is important to be aware that they are not HIPAA compliant. Completing the Informed Consent form acknowledges your understanding of this and acceptance of the risk should we utilize this format of care.
       <br />
-      {/* <i>5 to 25 minutes&#x2014; $75 *</i><br /> */}
-      {/* <i>26-50 minutes&#x2014; $150 *</i> */}
+      <i>5 to 25 minutes&#x2014; $75</i>
+      <br />
+      <i>26-50 minutes&#x2014; $150</i>
     </p>
-    <br />
+    <h3 style={{textAlign: 'center'}}>
+      Insurance
+    </h3>
     <p>
-      <i>
-        * You will be expected to pay for each session before/at the start of session, unless we agree otherwise. Payment may be made through cash, check, or HIPAA compliant application. Use of the HIPAA compliant application incurs an additional $5 charge. I am an "out of network provider" for insurance networks but will provide you a Superbill which you may use to request reimbursement.
-      </i>
+      I am an "out of network provider" for insurance networks but will provide you a Superbill which you may use to request reimbursement. The coverage you receive is entirely dependent upon the plan that you have. I recommend that you contact your insurance company directly to determine your specific coverage. Some questions that may be helpful in this conversation include:
     </p>
+    <ol>
+      <li>
+        Do I have mental health insurance benefits that cover psychotherapy?
+      </li>
+      <li>
+        Does my policy cover an out of network Licensed Psychologist? If so, what percentage is covered or what is the coverage amount per therapy session?
+      </li>
+      <li>
+        What is my deductible and has it been met?
+      </li>
+      <li>
+        Are my medical and mental health/behavioral health deductibles separate?
+      </li>
+      <li>
+        How many sessions per year does my health insurance cover?
+      </li>
+      <li>
+        Does the diagnosis matter? Are some diagnoses covered and others not?
+      </li>
+      <li>
+        What paperwork or forms do I need to submit for sessions to be covered?
+      </li>
+      <li>
+        Is approval required from my primary care physician?
+      </li>
+    </ol>
   </React.Fragment>
 );
 
@@ -898,11 +886,12 @@ const PageTitle = (props) => {
 class Drawer extends React.Component {
   render() {
     const {
-      handleMeetClick,
       handlePracticeClick,
       handleServicesClick,
       handleClassesClick,
-      handleContactClick
+      handleContactClick,
+      handleDocumentsClick,
+      handleResourcesClick
     } = this.props;
 
     const active = ''
@@ -916,40 +905,47 @@ class Drawer extends React.Component {
 
     return (
       <div className='drawer'>
-      <div
-        onClick={handleMeetClick}
-        className={cn('navMenu', 'link', { 'navMenu--active': active === 'help' })}
-        style={{...menuStyle, borderTop: '1px solid currentColor'}}
-      >
-        Meet Dr. Smith
+        <div
+          onClick={handlePracticeClick}
+          className={cn('navMenu', 'link', { 'navMenu--active': active === 'practice' })}
+          style={menuStyle}
+        >
+          Practice Areas
+      </div>
+        <div
+          onClick={handleServicesClick}
+          className={cn('navMenu', 'link', { 'navMenu--active': active === 'services' })}
+          style={menuStyle}
+        >
+          Services
+      </div>
+        <div
+          onClick={handleClassesClick}
+          className={cn('navMenu', 'link', { 'navMenu--active': active === 'classes' })}
+          style={menuStyle}
+        >
+          Classes
       </div>
       <div
-        onClick={handlePracticeClick}
-        className={cn('navMenu', 'link', { 'navMenu--active': active === 'help' })}
-        style={menuStyle}
-      >
-        Practice Areas
+          onClick={handleDocumentsClick}
+          className={cn('navMenu', 'link', { 'navMenu--active': active === 'docs' })}
+          style={menuStyle}
+        >
+          Documents
+      </div>
+        <div
+          onClick={handleContactClick}
+          className={cn('navMenu', 'link', { 'navMenu--active': active === 'contact' })}
+          style={menuStyle}
+        >
+          Contact
       </div>
       <div
-        onClick={handleServicesClick}
-        className={cn('navMenu', 'link', { 'navMenu--active': active === 'services' })}
-        style={menuStyle}
-      >
-        Services
-      </div>
-      <div
-        onClick={handleClassesClick}
-        className={cn('navMenu', 'link', { 'navMenu--active': active === 'classes' })}
-        style={menuStyle}
-      >
-        Classes
-      </div>
-      <div
-        onClick={handleContactClick}
-        className={cn('navMenu', 'link', { 'navMenu--active': active === 'contact' })}
-        style={menuStyle}
-      >
-        Contact
+          onClick={handleResourcesClick}
+          className={cn('navMenu', 'link', { 'navMenu--active': active === 'resources' })}
+          style={menuStyle}
+        >
+          Resources
       </div>
       </div>
     );

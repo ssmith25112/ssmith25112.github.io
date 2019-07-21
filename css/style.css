@@ -1,5 +1,5 @@
 * {
-  color: #222222;
+  color: #3f4c4e;
 }
 
 h2 {
@@ -51,13 +51,13 @@ body {
 }
 
 .hero-content h1 {
-  color: #FFFFFF;
+  /* color: #FFFFFF; */
 }
 
 blockquote footer {
   text-align: end;
   font-size: 22px;
-  color: #FFFFFF;
+  /* color: #FFFFFF; */
 }
 
 .meet {
@@ -262,7 +262,7 @@ blockquote footer {
 }
 
 .button:hover {
-  background: rgba(171, 208, 230, 0.7);
+  background: rgb(202, 226, 240);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -290,14 +290,6 @@ blockquote footer {
   padding-bottom: 30px;
 }
 
-.contact h2 {
-  color: #FFFFFF;
-}
-
-.contact h3 {
-  color: #FFFFFF;
-}
-
 .contact form {
   margin-top: 30px;
 }
@@ -315,9 +307,9 @@ textarea {
   display: block;
   width: 300px;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #3f4c4e;
   background: transparent;
-  color: white;
+  color: #3f4c4e;
 }
 
 input:focus {
@@ -330,7 +322,7 @@ textarea:focus {
 
 /* LABEL ======================================= */
 label {
-  color: white;
+  color: #3f4c4e;
   font-size: 18px;
   font-weight: normal;
   position: absolute;
@@ -347,8 +339,7 @@ input:focus~label,
 input:valid~label {
   top: -20px;
   font-size: 14px;
-  color: white;
-  /* color: #4e5f75; */
+  color: #FFFFFF;
 }
 
 textarea {
@@ -360,7 +351,7 @@ textarea:focus~label,
 textarea:valid~label {
   top: -20px;
   font-size: 14px;
-  color: white;
+  color: #FFFFFF;
 }
 
 /* TODO learn this */
@@ -379,7 +370,7 @@ textarea:valid~label {
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: white;
+  background: #3f4c4e;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -433,7 +424,7 @@ textarea:focus~.highlight {
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
   from {
-    background: white;
+    background: #3f4c4e;
   }
 
   to {
@@ -444,7 +435,7 @@ textarea:focus~.highlight {
 
 @-moz-keyframes inputHighlighter {
   from {
-    background: white;
+    background: #3f4c4e;
   }
 
   to {
@@ -455,7 +446,7 @@ textarea:focus~.highlight {
 
 @keyframes inputHighlighter {
   from {
-    background: white;
+    background: #3f4c4e;
   }
 
   to {
@@ -467,27 +458,38 @@ textarea:focus~.highlight {
 
 .footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: #EDEAE5;
-  padding: 30px;
+  padding: 20px;
 }
 
-.footer>div {
-  height: 90px;
-  justify-content: space-between;
-  display: flex;
-  flex-direction: column;
+#address:before {
+  content: '\007C';
+  padding: 0 15px
 }
 
-.footer>div>span {
-  text-align: right;
-  cursor: pointer;
-  margin-left: auto;
+#address:after {
+  content: '\007C';
+  padding: 0 15px;
 }
 
-.footer>div>span:hover {
-  filter: brightness(1.2);
+@media screen and (max-width: 776px) {
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #address:before {
+    content: none;
+    padding: 0
+  }
+  
+  #address:after {
+    content: none;
+    padding: 0;
+  }
 }
 
 
@@ -498,7 +500,7 @@ textarea:focus~.highlight {
   height: 3px;
   bottom: -2px;
   left: 0;
-  background: #EDEAE5;
+  background: #3f4c4e;
   visibility: hidden;
   border-radius: 5px;
   transform: scaleX(0);
@@ -511,9 +513,9 @@ textarea:focus~.highlight {
   transform: scaleX(1);
 }
 
-.navMenu:before {
+/* .navMenu:before {
   bottom: -5px !important;
-}
+} */
 
 .contact {
   background: center / cover no-repeat url('../res/succulentBurst.jpg');
@@ -526,45 +528,6 @@ textarea:focus~.highlight {
 .moreResources {
   background: center / cover no-repeat url('../res/moreResources.jpg');
 }
-
-
-
-/* 
-.about {
-  background-image: url('../res/about.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.help {
-  background-image: url('../res/help.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.services {
-  background-image: url('../res/services.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.classes {
-  background-image: url('../res/classes.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.contact {
-  background-image: url('../res/contact.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.resources {
-  background-image: url('../res/resources.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
 
 .signature {
   font-family: 'Dancing Script', cursive;
@@ -596,10 +559,6 @@ textarea:focus~.highlight {
   flex-direction: column;
   min-height: 100px;
   min-width: 100px;
-}
-
-.card * {
-  color: #222222;
 }
 
 .card-body {
@@ -710,9 +669,16 @@ textarea:focus~.highlight {
 }
 
 .header-hamburger:hover * {
-  color: rgba(34, 34, 34, 0.6);
+  color: #879092;
 }
 
 .hide {
   display: none;
 }
+
+/* .moreServices h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin: unset;
+  font-family: Roboto, sans-serif;
+} */
