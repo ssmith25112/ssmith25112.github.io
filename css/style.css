@@ -24,14 +24,13 @@ body {
   position: fixed;
   z-index: -1;
   width: 100%;
+  height: 100vh;
 }
 
 .hero {
   background-image: url('../res/hero.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-  width: 100%;
 }
 
 .content {
@@ -522,11 +521,24 @@ textarea:focus~.highlight {
 }
 
 .moreClasses {
-  background: center / cover no-repeat url('../res/moreClasses.jpg');
+  background: center / cover no-repeat url('../res/pineapple.jpg');
 }
 
 .moreResources {
-  background: center / cover no-repeat url('../res/moreResources.jpg');
+  background: center / cover no-repeat url('../res/resources.jpg');
+}
+
+.morePractice {
+  background: center / cover no-repeat url('../res/practiceareas.jpg');
+}
+
+.moreServices {
+  background: center / cover no-repeat url('../res/cornerplant.jpg');
+}
+
+.moreDocuments {
+  background: center / cover no-repeat url('../res/succulentmat.jpg');
+
 }
 
 .signature {
