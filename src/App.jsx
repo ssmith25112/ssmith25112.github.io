@@ -553,6 +553,12 @@ const Services = () => {
       <Card1
         body={services}
       />
+      <Card1 
+        body={servicesReimbursment}
+      />
+      <Card1
+        body={servicesInsurace}
+      />
     </React.Fragment>
   );
 }
@@ -692,6 +698,22 @@ const services = (
       <br />
       <i>26-50 minutes&#x2014; $150</i>
     </p>
+  </React.Fragment>
+);
+
+const servicesReimbursment = (
+  <React.Fragment>
+    <h3 style={{textAlign: 'center'}}>
+    Payment and Reimbursement
+    </h3>
+    <p>
+      You will be expected to pay for each session before/at the start of session, unless we agree otherwise. Payment may be made through cash, check, or HIPAA compliant application. Use of the HIPAA compliant application incurs an additional $5 charge.
+    </p>
+  </React.Fragment>
+);
+
+const servicesInsurace = (
+  <React.Fragment>
     <h3 style={{textAlign: 'center'}}>
       Insurance
     </h3>
@@ -727,39 +749,6 @@ const services = (
   </React.Fragment>
 );
 
-const fees = (
-  <React.Fragment>
-    <p>
-      Please note that you will be expected to pay for each session before/at the start of session, unless we agree otherwise. Payment may be made through cash, check, or HIPAA compliant application. Use of the HIPAA compliant application incurs an additional $5 charge. I am an "out of network provider" for insurance networks but will provide you a Superbill which you may use to request reimbursement.
-    </p>
-    <h3>Telephone Consult</h3>
-    <p>
-      <i>15-min initial telephone consult&#x2014; free of charge</i>
-    </p>
-    <h3>Initial Appointment</h3>
-    <p>
-      <i>60-min initial individual appointment&#x2014; $150</i>
-    </p>
-    <h3>Return Appointments</h3>
-    <p>
-      <i>50-min return individual appointment&#x2014; $150</i>
-    </p>
-    <h3>Classes</h3>
-    <p>
-      <i>4-session (360-min) class series&#x2014; $160</i>
-    </p>
-    <h3>TeleMental Health</h3>
-    <p>
-      <i>5 to 25 minutes&#x2014; $75</i><br />
-      <i>26-50 minutes&#x2014; $150</i>
-    </p>
-    <br />
-    <p>
-      <i>
-      </i>
-    </p>
-  </React.Fragment>
-);
 
 const classes = (
   <React.Fragment>
