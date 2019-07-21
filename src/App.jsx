@@ -49,6 +49,22 @@ export class App extends React.Component {
 
   handleNav = (target) => {
     this.setState({ page: target });
+
+    if (target.dock) {
+      this.closeDrawer();
+    }
+  }
+
+  toggleDrawer = () => {
+    this.setState((current) => ({
+      showDrawer: !current.showDrawer
+    }));
+  }
+
+  closeDrawer = () => {
+    this.setState({
+      showDrawer: false
+    })
   }
 
   render() {
@@ -100,9 +116,13 @@ export class App extends React.Component {
           showHamburger={this.state.showHamburger}
           active={name}
           onNav={this.handleNav}
+          openDrawer={this.toggleDrawer}
         />
         <Body
           page={page}
+          closeDrawer={this.closeDrawer}
+          showDrawer={this.state.showDrawer}
+          onNav={this.handleNav}
         >
           {content}
         </Body>
@@ -142,6 +162,58 @@ class Body extends React.Component {
     }
   }
 
+  handleDrawerOverlayClick = () => {
+    this.props.closeDrawer()
+  }
+
+  renderDrawer = () => {
+    const { showDrawer } = this.props;
+
+    const classes = cn('drawer-container', {
+      'hide': !showDrawer
+    });
+
+    const overlayClasses = cn('drawer-overlay', {
+      'hide': !showDrawer
+    });
+
+    const onDrawerMeetClick = () => {
+      this.props.onNav({ name: 'home', scrollTo: 'meet', dock: true });
+    }
+
+    const onDrawerPracticeClick = () => {
+      this.props.onNav({ name: 'home', scrollTo: 'practice', dock: true });
+    }
+
+    const onDrawerServicesClick = () => {
+      this.props.onNav({ name: 'services', scrollTo: 0, dock: true });
+    }
+
+    const onDrawerContactClick = () => {
+      this.props.onNav({ name: 'home', scrollTo: 'contact', dock: true })
+    }
+
+    const onDrawerClassesClick = () => {
+      this.props.onNav({ name: 'classes', scrollTo: 0, dock: true })
+    }
+
+    return (
+      <React.Fragment>
+        <div className={classes}>
+          <Drawer 
+            handleMeetClick={onDrawerMeetClick}
+            handleContactClick={onDrawerContactClick}
+            handleServicesClick={onDrawerServicesClick}
+            handlePracticeClick={onDrawerPracticeClick}
+            handleClassesClick={onDrawerClassesClick}
+          />
+        </div>
+        <div className={overlayClasses} onClick={this.handleDrawerOverlayClick}>
+        </div>
+      </React.Fragment>
+    );
+  }
+
   render() {
     const {
       page
@@ -168,6 +240,7 @@ class Body extends React.Component {
       >
         <div
         >
+          {this.renderDrawer()}
           {this.props.children}
         </div>
       </div>
@@ -187,7 +260,7 @@ const Header = (props) => {
     alignItems: 'center',
     backgroundColor: '#EDEAE5',
     boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
-    zIndex: 10,
+    zIndex: 24,
   };
 
   const menuStyle = {
@@ -197,20 +270,23 @@ const Header = (props) => {
   const {
     active,
     onNav,
-    showHamburger
+    showHamburger,
+    openDrawer
   } = props;
 
   const renderHamburger = () => {
     return (
-      <div className='header-nav header-hamburger' style={{marginLeft: 20}}>
+      <div
+        className='header-nav header-hamburger'
+        style={{ marginLeft: 20 }}
+        onClick={openDrawer}
+      >
         <span>
-          <svg width="34" height="34" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="#000000" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
+          <svg className='hamburger' width="34" height="34" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg>
         </span>
       </div>
     );
   }
-
-  console.log(showHamburger)
 
   if (showHamburger) {
     inlineStyle.justifyContent = 'space-between';
@@ -222,7 +298,7 @@ const Header = (props) => {
         <div
           onClick={() => onNav({ name: 'home', scrollTo: 'top' })}
           className={cn('navMenu', 'signature', 'link', { 'navMenu--active': active === 'home' })}
-          style={{...menuStyle, marginRight: 20 }}
+          style={{ ...menuStyle, marginRight: 20 }}
         >
           Stephanie Smith, Psy.D.
         </div>
@@ -256,14 +332,14 @@ const Header = (props) => {
         Practice Areas
       </div>
       <div
-        onClick={() => onNav({ name: 'home', scrollTo: 'services' })}
+        onClick={() => onNav({ name: 'services', scrollTo: 0 })}
         className={cn('navMenu', 'link', { 'navMenu--active': active === 'services' })}
         style={menuStyle}
       >
         Services
       </div>
       <div
-        onClick={() => onNav({ name: 'home', scrollTo: 'classes' })}
+        onClick={() => onNav({ name: 'classes', scrollTo: 0 })}
         className={cn('navMenu', 'link', { 'navMenu--active': active === 'classes' })}
         style={menuStyle}
       >
@@ -293,12 +369,13 @@ const Footer = (props) => {
         >
           Stephanie Smith, Psy.D.
         </div>
-        <div        >
-          Alhambra Blvd
+        <div>
+          801 Alhambra Blvd,<br />
+          Suite 2B Sacramento, CA 95816
         </div>
         <div
         >
-          (916) 555-5555
+          (916) 399-3615
         </div>
       </div>
       <div>
@@ -335,7 +412,7 @@ const Home = (props) => {
               </footer>
           </blockquote>
         </div>
-        <div className='meet card-2' id='meet'>
+        <div className='meet card-2' id='meet' >
           <div className='profile'>
             <img className='profilePhoto card-1' src='res/profile.jpg' />
           </div>
@@ -413,7 +490,7 @@ const Home = (props) => {
             </button>
           </div>
         </div>
-        <div className='services card-2' id='services'>
+        {/* <div className='services card-2' id='services'>
           <div className='servicesDescription'>
             <h2>
               Services
@@ -432,8 +509,8 @@ const Home = (props) => {
           </div>
           <div className='servicesImage'>
           </div>
-        </div>
-        <div className='classes' id='classes'>
+        </div> */}
+        {/* <div className='classes' id='classes'>
           <div className='classesDescription'>
             <h2>
               Mood & Food
@@ -450,7 +527,7 @@ const Home = (props) => {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className='contact card-2' id='contact'>
           <h2>Change begins today</h2>
           <h3>Request a consultation</h3>
@@ -815,4 +892,90 @@ const PageTitle = (props) => {
       </div>
     </div>
   );
+}
+
+
+class Drawer extends React.Component {
+  render() {
+    const {
+      handleMeetClick,
+      handlePracticeClick,
+      handleServicesClick,
+      handleClassesClick,
+      handleContactClick
+    } = this.props;
+
+    const active = ''
+
+    const menuStyle = {
+      cursor: 'pointer',
+      fontSize: 20,
+      borderBottom: '1px solid currentColor',
+      padding: 10
+    };
+
+    return (
+      <div className='drawer'>
+      <div
+        onClick={handleMeetClick}
+        className={cn('navMenu', 'link', { 'navMenu--active': active === 'help' })}
+        style={{...menuStyle, borderTop: '1px solid currentColor'}}
+      >
+        Meet Dr. Smith
+      </div>
+      <div
+        onClick={handlePracticeClick}
+        className={cn('navMenu', 'link', { 'navMenu--active': active === 'help' })}
+        style={menuStyle}
+      >
+        Practice Areas
+      </div>
+      <div
+        onClick={handleServicesClick}
+        className={cn('navMenu', 'link', { 'navMenu--active': active === 'services' })}
+        style={menuStyle}
+      >
+        Services
+      </div>
+      <div
+        onClick={handleClassesClick}
+        className={cn('navMenu', 'link', { 'navMenu--active': active === 'classes' })}
+        style={menuStyle}
+      >
+        Classes
+      </div>
+      <div
+        onClick={handleContactClick}
+        className={cn('navMenu', 'link', { 'navMenu--active': active === 'contact' })}
+        style={menuStyle}
+      >
+        Contact
+      </div>
+      </div>
+    );
+  }
+}
+
+export class Button extends React.Component {
+  render() {
+    const {
+      to,
+      text,
+      onClick,
+      classes
+    } = this.props;
+
+    return (
+      <div
+      >
+        <button
+          className={`button ${classes}`}
+          onClick={onClick}
+        >
+          {text}
+          {this.props.children}
+        </button>
+      </div>
+    )
+  }
 }

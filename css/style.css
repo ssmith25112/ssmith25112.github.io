@@ -2,6 +2,13 @@
   color: #222222;
 }
 
+h2 {
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+  margin: 0;
+}
+
 body {
   margin: 0;
   position: relative;
@@ -55,7 +62,7 @@ blockquote footer {
 
 .meet {
   display: flex;
-  background-color: #ABD0DA;
+  background-color: #EDEAE5;
   padding: 30px;
 
 }
@@ -85,12 +92,6 @@ blockquote footer {
   max-width: 50%;
 }
 
-.bio .bioTitle {
-  text-decoration: underline;
-  text-align: center;
-  margin-top: 0;
-}
-
 .bio .bioSubtitle {
   text-align: center;
 }
@@ -105,7 +106,8 @@ blockquote footer {
     flex-direction: column;
   }
 
-  .bio, .profile {
+  .bio,
+  .profile {
     width: 100%;
     max-width: 100%;
   }
@@ -119,12 +121,7 @@ blockquote footer {
   box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.16);
 }
 
-.practiceAreas h2 {
-  text-align: center;
-  font-size: 4rem;
-  font-family: 'Dancing Script', cursive;
-  margin: 0;
-}
+
 
 .practiceAreas .areas {
   display: flex;
@@ -153,38 +150,39 @@ blockquote footer {
 }
 
 .areaEatingConcerns {
-  background: url('../res/eatingconcerns.jpg') no-repeat ;
-  background-size: 100% 119%;
-
+  background: url('../res/eatingconcerns.jpg') no-repeat;
+  background-size: 100% 140%;
+  background-position: left bottom -50px;
 }
 
 .areaLifestyle {
   background: url('../res/lifestyle2.jpg') no-repeat;
   background-size: cover;
-
+  background-position: left bottom -65px;
 }
 
 .areaMedicalProblems {
   background: url('../res/medicalproblems.jpg') no-repeat;
-  background-size: 100% 120%;
-
+  background-size: 100% 140%;
+  background-position: left;
 }
 
 .areaRelationships {
-  background: url('../res/relationships.jpg')  no-repeat;
+  background: url('../res/relationships.jpg') no-repeat;
   background-size: cover;
-
+  background-position: left bottom -80px;
 }
 
 .areaStress {
-  background: url('../res/stressmanagement.jpg') no-repeat ;
+  background: url('../res/stressmanagement.jpg') no-repeat;
   background-size: cover;
-
+  background-position: left bottom -80px;
 }
 
 .areaTransitions {
-  background: url('../res/transitions.jpg') no-repeat ;
+  background: url('../res/transitions.jpg') no-repeat;
   background-size: cover;
+  background-position: left -20px;
 }
 
 .areaText {
@@ -232,6 +230,7 @@ blockquote footer {
   .servicesDescription {
     width: 100%;
   }
+
   .servicesImage {
     width: 0%;
     display: none;
@@ -252,7 +251,7 @@ blockquote footer {
   border-radius: 2px;
   margin: 0;
   text-decoration: none;
-  background: #9FEDD7;
+  background: rgba(171, 208, 230, 1);
   font-size: 18px;
   cursor: pointer;
   text-align: center;
@@ -263,7 +262,7 @@ blockquote footer {
 }
 
 .button:hover {
-  background: rgb(178, 233, 217);
+  background: rgba(171, 208, 230, 0.7);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -291,6 +290,14 @@ blockquote footer {
   padding-bottom: 30px;
 }
 
+.contact h2 {
+  color: #FFFFFF;
+}
+
+.contact h3 {
+  color: #FFFFFF;
+}
+
 .contact form {
   margin-top: 30px;
 }
@@ -308,7 +315,9 @@ textarea {
   display: block;
   width: 300px;
   border: none;
-  border-bottom: 1px solid #757575;
+  border-bottom: 1px solid white;
+  background: transparent;
+  color: white;
 }
 
 input:focus {
@@ -321,7 +330,7 @@ textarea:focus {
 
 /* LABEL ======================================= */
 label {
-  color: #999;
+  color: white;
   font-size: 18px;
   font-weight: normal;
   position: absolute;
@@ -338,7 +347,8 @@ input:focus~label,
 input:valid~label {
   top: -20px;
   font-size: 14px;
-  color: #5264AE;
+  color: white;
+  /* color: #4e5f75; */
 }
 
 textarea {
@@ -346,16 +356,16 @@ textarea {
   padding: 0;
 }
 
-textarea:focus ~label,
-textarea:valid ~label {
+textarea:focus~label,
+textarea:valid~label {
   top: -20px;
   font-size: 14px;
-  color: #5264AE;
+  color: white;
 }
 
 /* TODO learn this */
 
-/* BOTTOM BARS ================================= */ 
+/* BOTTOM BARS ================================= */
 .bar {
   position: relative;
   display: block;
@@ -369,7 +379,7 @@ textarea:valid ~label {
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #5264AE;
+  background: white;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -423,7 +433,7 @@ textarea:focus~.highlight {
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
   from {
-    background: #5264AE;
+    background: white;
   }
 
   to {
@@ -434,7 +444,7 @@ textarea:focus~.highlight {
 
 @-moz-keyframes inputHighlighter {
   from {
-    background: #5264AE;
+    background: white;
   }
 
   to {
@@ -445,7 +455,7 @@ textarea:focus~.highlight {
 
 @keyframes inputHighlighter {
   from {
-    background: #5264AE;
+    background: white;
   }
 
   to {
@@ -463,20 +473,20 @@ textarea:focus~.highlight {
   padding: 30px;
 }
 
-.footer > div {
-  height: 65px;
+.footer>div {
+  height: 90px;
   justify-content: space-between;
   display: flex;
   flex-direction: column;
 }
 
-.footer > div > span {
+.footer>div>span {
   text-align: right;
   cursor: pointer;
   margin-left: auto;
 }
 
-.footer > div > span:hover {
+.footer>div>span:hover {
   filter: brightness(1.2);
 }
 
@@ -505,7 +515,7 @@ textarea:focus~.highlight {
   bottom: -5px !important;
 }
 
-.moreServices {
+.contact {
   background: center / cover no-repeat url('../res/succulentBurst.jpg');
 }
 
@@ -633,4 +643,76 @@ textarea:focus~.highlight {
   width: 100%;
   height: 100%;
   position: relative;
+}
+
+
+.drawer-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.30);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  z-index: 20;
+}
+
+.drawer-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 155px;
+  height: calc(100vh - 50px);
+  z-index: 100;
+  /* transition: all 0.3s ease-in-out; */
+  top: 50px;
+  position: fixed;
+}
+
+.drawer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #EDEAE5;
+  justify-content: flex-start;
+  box-shadow: 11px 10px 8px 0px rgba(0, 0, 0, 0.25), 10px 0 5px -5px rgba(0, 0, 0, 0);
+  transition: none;
+}
+
+.drawer+.dark {
+  background-color: #C0C3C6;
+}
+
+.drawer-button {
+  width: 100%;
+  height: 40px;
+}
+
+.header-nav-button {
+  height: 40px;
+  width: 100px;
+}
+
+.drawer-item {
+  display: flex;
+}
+
+.drawer-item>div {
+  flex: 1;
+  padding-bottom: 10px;
+}
+
+.header-hamburger {
+  cursor: pointer;
+}
+
+.header-hamburger:hover * {
+  color: rgba(34, 34, 34, 0.6);
+}
+
+.hide {
+  display: none;
 }
