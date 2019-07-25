@@ -33,6 +33,7 @@ body {
   background-size: cover;
 }
 
+
 .content {
   margin-top: 50px;
 }
@@ -155,10 +156,16 @@ blockquote footer {
 }
 
 .areaLifestyle {
-  background: url('../res/lifestyle2.jpg') no-repeat;
+  background: url('../res/lifestyle.jpg') no-repeat;
   background-size: cover;
   background-position: left bottom -65px;
 }
+/* 
+.areaLifestyle.lazy {
+  background: url('../res/lifestyle-placeholder.jpg') no-repeat;
+  background-size: cover;
+  background-position: left bottom -65px;
+} */
 
 .areaMedicalProblems {
   background: url('../res/medicalproblems.jpg') no-repeat;
@@ -166,11 +173,19 @@ blockquote footer {
   background-position: left;
 }
 
+/* .areaMedicalProblems.lazy {
+  background: url('../res/medicalproblems-placeholder.jpg') no-repeat;
+} */
+
 .areaRelationships {
   background: url('../res/relationships.jpg') no-repeat;
   background-size: cover;
   background-position: left bottom -80px;
 }
+/* 
+.areaRelationshipsj.lazy {
+  background: url('../res/relationships.jpg') no-repeat;
+} */
 
 .areaStress {
   background: url('../res/stressmanagement.jpg') no-repeat;
@@ -178,11 +193,19 @@ blockquote footer {
   background-position: left bottom -80px;
 }
 
+/* .areaStress.lazy {
+  background: url('../res/stressmanagement-placeholder.jpg') no-repeat;
+} */
+
 .areaTransitions {
   background: url('../res/transitions.jpg') no-repeat;
   background-size: cover;
   background-position: left -20px;
 }
+
+/* .areaTransitions .lazy {
+  background: url('../res/transitions-placeholder.jpg') no-repeat;
+} */
 
 .areaText {
   font-size: 30px;
@@ -216,13 +239,6 @@ blockquote footer {
   display: flex;
   flex-direction: column;
   padding: 30px;
-}
-
-.servicesImage {
-  width: 50%;
-  background: url('../res/services.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 400px) {
@@ -520,26 +536,51 @@ textarea:focus~.highlight {
   background: center / cover no-repeat url('../res/succulentBurst.jpg');
 }
 
+/* .contact.lazy {
+  background: center / cover no-repeat url('../res/succulentBurst-placeholder.jpg');
+} */
+
 .moreClasses {
   background: center / cover no-repeat url('../res/pineapple.jpg');
 }
+/* 
+.moreClasses.lazy {
+  background: center / cover no-repeat url('../res/pineapple-placeholder.jpg');
+} */
 
 .moreResources {
-  background: center / cover no-repeat url('../res/resources.jpg');
+  background: center / cover no-repeat url('../res/moreResources.jpg');
 }
+/* 
+.moreResources.lazy {
+  background: center / cover no-repeat url('../res/moreResources-placeholder.jpg');
+} */
 
 .morePractice {
   background: center / cover no-repeat url('../res/practiceareas.jpg');
 }
 
+/* .morePractice.lazy {
+  background: center / cover no-repeat url('../res/practiceareas-placeholder.jpg');
+} */
+
 .moreServices {
   background: center / cover no-repeat url('../res/cornerplant.jpg');
+}
+
+.moreServices.lazy {
+  /* background: center / cover no-repeat url('../res/cornerplant-placeholder.jpg'); */
 }
 
 .moreDocuments {
   background: center / cover no-repeat url('../res/succulentmat.jpg');
 
 }
+
+/* .moreDocuments.lazy {
+  background: center / cover no-repeat url('../res/succulentmat-placeholder.jpg');
+
+} */
 
 .signature {
   font-family: 'Dancing Script', cursive;

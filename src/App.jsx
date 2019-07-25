@@ -231,7 +231,7 @@ class Body extends React.Component {
 
     const n = page.name;
     const classes = cn('backdrop', {
-      'hero': n === 'home',
+      'hero lazy': n === 'home',
       'moreServices': n === 'services',
       'moreResources': n === 'resources',
       'moreDocuments': n === 'docs',
@@ -396,10 +396,21 @@ const Home = (props) => {
   const {
     onNav
   } = props;
+
+  // const [isLazy, setLazy] = React.useState(true);
+
+  // React.useEffect(() => {
+  //   if (isLazy) {
+  //     setLazy(false);
+  //   }
+  // });
+
+  let lazy = '';
+  
   return (
     <div>
       <div className='backdrop'>
-        <div className='hero' />
+        <div className={`hero ${lazy}`} />
       </div>
       <div className='content' id='top'>
         <div className='hero-content'>
@@ -430,7 +441,7 @@ const Home = (props) => {
           <div className='areas'>
             <div className='area card-1'>
               <div className='areaOverlay' />
-              <div className='areaImage areaEatingConcerns' />
+              <div className={`areaImage areaEatingConcerns ${lazy}`} />
               <div className='areaText'>
                 <div>
                   Eating<br /> Concerns
@@ -439,7 +450,7 @@ const Home = (props) => {
             </div>
             <div className='area card-1'>
               <div className='areaOverlay' />
-              <div className='areaImage areaLifestyle' />
+              <div className={`areaImage areaLifestyle ${lazy}`} />
               <div className='areaText'>
                 <div>
                   Lifestyle<br /> Changes
@@ -448,7 +459,7 @@ const Home = (props) => {
             </div>
             <div className='area card-1'>
               <div className='areaOverlay' />
-              <div className='areaImage areaTransitions' />
+              <div className={`areaImage areaTransitions ${lazy}`} />
               <div className='areaText'>
                 <div>
                   Life<br /> Transitions
@@ -457,7 +468,7 @@ const Home = (props) => {
             </div>
             <div className='area card-1'>
               <div className='areaOverlay' />
-              <div className='areaImage areaRelationships' />
+              <div className={`areaImage areaRelationships ${lazy}`} />
               <div className='areaText'>
                 <div>
                   Relationship<br /> Challenges
@@ -466,7 +477,7 @@ const Home = (props) => {
             </div>
             <div className='area card-1'>
               <div className='areaOverlay' />
-              <div className='areaImage areaMedicalProblems' />
+              <div className={`areaImage areaMedicalProblems ${lazy}`} />
               <div className='areaText'>
                 <div>
                   Health<br /> Difficulties
@@ -475,7 +486,7 @@ const Home = (props) => {
             </div>
             <div className='area card-1'>
               <div className='areaOverlay' />
-              <div className='areaImage areaStress' />
+              <div className={`areaImage areaStress ${lazy}`} />
               <div className='areaText'>
                 <div>
                   Stress<br /> Management
@@ -489,7 +500,7 @@ const Home = (props) => {
             </button>
           </div>
         </div>
-        <div className='contact card-2' id='contact'>
+        <div className={`contact card-2 ${lazy}`} id='contact'>
           <h2>Change begins today</h2>
           <h3>Request a consultation</h3>
           <form>
