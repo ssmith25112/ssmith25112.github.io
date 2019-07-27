@@ -596,6 +596,8 @@ const PracticeAreas = () => {
         title='Practice Areas'
       />
       <Card1
+        shrink={true}
+
         body={practiceAreas}
       />
     </React.Fragment>
@@ -609,12 +611,18 @@ const Services = () => {
         title='Services'
       />
       <Card1
+        shrink={true}
+
         body={services}
       />
       <Card1
+        shrink={true}
+
         body={servicesReimbursment}
       />
       <Card1
+        shrink={true}
+
         body={servicesInsurace}
       />
     </React.Fragment>
@@ -628,6 +636,8 @@ const Classes = () => {
         title={'Classes'}
       />
       <Card1
+        shrink={true}
+
         body={classes}
       />
     </React.Fragment>
@@ -642,6 +652,7 @@ const ClientDocuments = () => {
         title={'Client Documents'}
       />
       <Card1
+        shrink={true}
         body={clientDocuments}
       />
     </React.Fragment>
@@ -655,6 +666,7 @@ const Resources = () => {
         title={'Resources'}
       />
       <Card1
+        shrink={true}
         body={resources}
       />
     </React.Fragment>
@@ -669,6 +681,7 @@ const Fees = () => {
         title={'Fees'}
       />
       <Card1
+        shrink={true}
         body={fees}
       />
     </React.Fragment>
@@ -970,8 +983,11 @@ const Card1 = (props) => {
       </div>
     ) : undefined;
 
+  const id = props.shrink ? 'shrink' : undefined;
+
   return (
     <div
+      id={id}
       className='card card-1'
     >
       {title}

@@ -113,8 +113,16 @@ blockquote footer {
     max-width: 100%;
   }
 
-  .contact > p {
+  .contact>p {
     font-size: 16px !important;
+  }
+
+  #shrink {
+    margin: 50px 10px;
+  }
+
+  .title {
+    font-size: 3rem !important;
   }
 }
 
@@ -150,7 +158,7 @@ blockquote footer {
 
 .practiceAreas .areas>.area:hover {
   filter: brightness(1.2);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   transition: box-shadow 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -172,6 +180,7 @@ blockquote footer {
   background-size: cover;
   background-position: left bottom -65px;
 }
+
 /* 
 .areaLifestyle.lazy {
   background: url('../res/lifestyle-placeholder.jpg') no-repeat;
@@ -194,6 +203,7 @@ blockquote footer {
   background-size: cover;
   background-position: left bottom -80px;
 }
+
 /* 
 .areaRelationshipsj.lazy {
   background: url('../res/relationships.jpg') no-repeat;
@@ -516,7 +526,7 @@ textarea:focus~.highlight {
     content: none;
     padding: 0
   }
-  
+
   #address:after {
     content: none;
     padding: 0;
@@ -559,6 +569,7 @@ textarea:focus~.highlight {
 .moreClasses {
   background: center / cover no-repeat url('../res/pineapple.jpg');
 }
+
 /* 
 .moreClasses.lazy {
   background: center / cover no-repeat url('../res/pineapple-placeholder.jpg');
@@ -567,6 +578,7 @@ textarea:focus~.highlight {
 .moreResources {
   background: center / cover no-repeat url('../res/moreResources.jpg');
 }
+
 /* 
 .moreResources.lazy {
   background: center / cover no-repeat url('../res/moreResources-placeholder.jpg');
