@@ -151,17 +151,19 @@ export class App extends React.Component {
           onNav={this.handleNav}
           openDrawer={this.toggleDrawer}
         />
-        <Body
-          page={page}
-          closeDrawer={this.closeDrawer}
-          showDrawer={this.state.showDrawer}
-          onNav={this.handleNav}
-        >
-          {content}
-        </Body>
-        <Footer
-          onNav={this.handleNav}
-        />
+        <div>
+          <Body
+            page={page}
+            closeDrawer={this.closeDrawer}
+            showDrawer={this.state.showDrawer}
+            onNav={this.handleNav}
+          >
+            {content}
+          </Body>
+          <Footer
+            onNav={this.handleNav}
+          />
+        </div>
       </div>
     );
   }
@@ -259,7 +261,7 @@ class Body extends React.Component {
     } = this.props;
 
     const bodyStyle = {
-      minHeight: `calc(100vh - 60px)`
+      // minHeight: `calc(100vh - 60px)`
     };
 
     const n = page.name;
@@ -408,21 +410,15 @@ const Footer = (props) => {
     <div
       className='footer'
     >
-      <div>
-        <span>
-          Stephanie Smith, Psy.D.
+      <span>
+        Stephanie Smith, Psy.D.
       </span>
-        <span id='address'>
-          801 Alhambra Blvd, Suite 2B Sacramento, CA 95816
+      <span id='address'>
+        801 Alhambra Blvd, Suite 2B Sacramento, CA 95816
       </span>
-        <span>
-          (916) 399-3615
+      <span>
+        (916) 399-3615
       </span>
-      </div>
-      <div>
-        <a href="https://www.psychologytoday.com/profile/473076" class="sx-verified-seal"></a>
-        <script type="text/javascript" src="https://member.psychologytoday.com/verified-seal.js" data-badge="14" data-id="473076" data-code="aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy9bQkFER0VdL3Byb2ZpbGUvW1BST0ZJTEVfSURdP2NhbGxiYWNrPXN4Y2FsbGJhY2s="></script>
-      </div>
     </div >
   );
 };
@@ -432,14 +428,6 @@ const Home = (props) => {
   const {
     onNav
   } = props;
-
-  // const [isLazy, setLazy] = React.useState(true);
-
-  // React.useEffect(() => {
-  //   if (isLazy) {
-  //     setLazy(false);
-  //   }
-  // });
 
   let lazy = '';
 
