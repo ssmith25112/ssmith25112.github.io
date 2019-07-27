@@ -404,22 +404,25 @@ const Header = (props) => {
 };
 
 const Footer = (props) => {
-  const {
-    onNav
-  } = props;
   return (
     <div
       className='footer'
     >
-      <span>
-        Stephanie Smith, Psy.D.
+      <div>
+        <span>
+          Stephanie Smith, Psy.D.
       </span>
-      <span id='address'>
-        801 Alhambra Blvd, Suite 2B Sacramento, CA 95816
+        <span id='address'>
+          801 Alhambra Blvd, Suite 2B Sacramento, CA 95816
       </span>
-      <span>
-        (916) 399-3615
+        <span>
+          (916) 399-3615
       </span>
+      </div>
+      <div>
+        <a href="https://www.psychologytoday.com/profile/473076" class="sx-verified-seal"></a>
+        <script type="text/javascript" src="https://member.psychologytoday.com/verified-seal.js" data-badge="14" data-id="473076" data-code="aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy9bQkFER0VdL3Byb2ZpbGUvW1BST0ZJTEVfSURdP2NhbGxiYWNrPXN4Y2FsbGJhY2s="></script>
+      </div>
     </div >
   );
 };
@@ -472,7 +475,9 @@ const Home = (props) => {
         <div className='practiceAreas' id='practice'>
           <h2>Practice Areas</h2>
           <div className='areas'>
-            <div className='area card-1'>
+            <div className='area card-1'
+              onClick={() => onNav({ name: 'practice', scrollTo: 'moreEatingConcerns' })}
+            >
               <div className='areaOverlay' />
               <div className={`areaImage areaEatingConcerns ${lazy}`} />
               <div className='areaText'>
@@ -481,7 +486,9 @@ const Home = (props) => {
                   </div>
               </div>
             </div>
-            <div className='area card-1'>
+            <div className='area card-1'
+              onClick={() => onNav({ name: 'practice', scrollTo: 'moreLifestyleChanges' })}
+            >
               <div className='areaOverlay' />
               <div className={`areaImage areaLifestyle ${lazy}`} />
               <div className='areaText'>
@@ -490,7 +497,9 @@ const Home = (props) => {
                   </div>
               </div>
             </div>
-            <div className='area card-1'>
+            <div className='area card-1'
+              onClick={() => onNav({ name: 'practice', scrollTo: 'moreLifeTransitions' })}
+            >
               <div className='areaOverlay' />
               <div className={`areaImage areaTransitions ${lazy}`} />
               <div className='areaText'>
@@ -499,7 +508,9 @@ const Home = (props) => {
                   </div>
               </div>
             </div>
-            <div className='area card-1'>
+            <div className='area card-1'
+              onClick={() => onNav({ name: 'practice', scrollTo: 'moreReleationshipChallenges' })}
+            >
               <div className='areaOverlay' />
               <div className={`areaImage areaRelationships ${lazy}`} />
               <div className='areaText'>
@@ -508,7 +519,9 @@ const Home = (props) => {
                   </div>
               </div>
             </div>
-            <div className='area card-1'>
+            <div className='area card-1'
+              onClick={() => onNav({ name: 'practice', scrollTo: 'moreMedicalProblems' })}
+            >
               <div className='areaOverlay' />
               <div className={`areaImage areaMedicalProblems ${lazy}`} />
               <div className='areaText'>
@@ -517,7 +530,9 @@ const Home = (props) => {
                   </div>
               </div>
             </div>
-            <div className='area card-1'>
+            <div className='area card-1'
+              onClick={() => onNav({ name: 'practice', scrollTo: 'moreStressManagement' })}
+            >
               <div className='areaOverlay' />
               <div className={`areaImage areaStress ${lazy}`} />
               <div className='areaText'>
@@ -685,31 +700,41 @@ const meetSteph = (
 
 const practiceAreas = (
   <React.Fragment>
-    <h3>Eating Concerns</h3>
+    <h3 id='moreEatingConcerns'>Eating Concerns</h3>
     <p>
       Individuals noticing mindless, stress, emotional, or binge eating behaviors are welcome to consider both individual and class-based therapies with me. My approach to these concerns recognizes the complex role eating can play as a mechanism of coping for individual, family, and culturally systemic issues. We work together to acknowledge the fullness of this role as well as it's history, while honoring the desire that may exist to change. Through our work we can begin to develop new and healthier coping strategies as a natural outcome of increased awareness and self-compassion. I tailor my approach to the needs and style of the individual with whom I am working.
     </p>
 
-    <h3>Lifestyle Changes</h3>
+    <h3
+      id='moreLifestyleChanges'
+    >Lifestyle Changes</h3>
 
     <p>
       Most of us can relate to the running mental list of things we know we "should" be doing in order to be healthier. Maybe this is moving our bodies more, eating differently, improving sleep habits, or disconnecting from technology. Maybe it could be these things plus many more! While certainly excellent habits, looking at a list of personal wellness "to dos" can be overwhelming. In fact, we often avoid thinking about these healthy living items because it can feel hopeless. Unfortunately, often this means staying stuck in a rut of feeling unhealthy. Together, we can create a plan of small steps to work towards connecting behavior changes with your deepest values. Things that may have felt forced in the past can become things we are eager for. I will leverage my training in Lifestyle Medicine to help set manageable and research supported aims to produce real improvements in your health.
 </p>
 
-    <h3>Phase of Life Issues/Life Transitions</h3>
+    <h3
+      id='moreLifeTransitions'
+    >Phase of Life Issues/Life Transitions</h3>
     <p>
       Though the phrase, "the only thing constant is change" is one familiar to many of us, this often feels like little comfort during the turmoil of a significant transition. Changes in life circumstances can impact us on every level of our being and external life. Seeking therapy during these times can be both anchor and guide light. I will support you to process the loss of how things have been. When you are ready, we will set consciously developed goals for the phase of life that you find yourself in now. We will work together to identify healthy core components of who you are evolving to be, and center our attention to nurture this growth. There is no set timeline of how long an adjustment period lasts. I will help you to move into the next part of your life in healthful ways, as quickly as is reasonable, and in complete respect for your own pace.
 </p>
 
-    <h3>Relationship Challenges</h3>
+    <h3
+      id='moreRelationshipCallenges'
+    >Relationship Challenges</h3>
     <p>
       Romantic, family, social, and occupational relationships can all be sources of significant pleasure and, consequently, significant pain. There are a multitude of reasons relationships can become troubled. Many of the roots of these reasons can be traced to communication clarity. While we cannot change other people, we can identify personal qualities in ourselves that we wish to change for the wellbeing of a current or future relationship. Working towards identifying these areas, creating mindful awareness around them, and making values-based changes can provide both personal benefits and improvements to the relationship. We can work together to identify and optimize these changes while prioritizing effective and clear communication as the cornerstone to improved relationships.
 </p>
-    <h3>Health Difficulties</h3>
+    <h3
+      id='moreHealthDifficulties'
+    >Health Difficulties</h3>
     <p>
       There is no doubt that our physical wellbeing impacts our psychological wellbeing and vice versa. Whether you are looking for support in improving your management of a medical problem, handling the stress around it, or believe there may be lifestyle changes that will reverse the condition, I would be happy to support this aspect of your health. I am a trained health psychologist and work regularly with both chronic and acute medical conditions. I have personal and professional experience with the impacts physical health can have not only on oneself, but also on those around us. I believe support can make a substantive difference in managing a health concern as well as the emotional and social impacts of this. I will work with you to accept those realities that are unchanging, as well as recognize opportunities for positive growth.
 </p>
-    <h3>Stress Management</h3>
+    <h3
+      id='moreStressManagement'
+    >Stress Management</h3>
     <p>
       At times we can find ourselves overwhelmed. The reasons for feeling overwhelmed might seem clear, or they may be hard to understand. It can feel like being trapped in parts of your own life. Talking through your stressors with a professional can allow space around painful parts of your experience that could ease the pressure. There may also be alternative perspectives that you aren’t able to see from being right in the thick of the stress, that may be visible from an outside perspective. Therapy can provide support to process your experiences and free you to be a more whole version of yourself; able to engage with the rest of your life and the people in it.
     </p>
