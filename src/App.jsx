@@ -67,7 +67,7 @@ export class App extends React.Component {
       this.closeDrawer();
     }
 
-    switch (page.name) {
+    switch (target.name) {
       case 'home':
         this.history.push('/');
         break;
@@ -371,7 +371,7 @@ const Header = (props) => {
         className={cn('navMenu', 'link', { 'navMenu--active': active === 'services' })}
         style={menuStyle}
       >
-        Services
+        Services & Fees
       </div>
       <div
         onClick={() => onNav({ name: 'classes', scrollTo: 0 })}
@@ -447,17 +447,19 @@ const Home = (props) => {
           </blockquote>
         </div>
         <div className='meet card-2' id='meet' >
-          <div className='profile'>
-            <img className='profilePhoto card-1' src='res/profile.jpg' />
-          </div>
-          <div className='bio'>
-            <h2 className='bioTitle'>
-              Meet Dr. Stephanie Smith
+          <div className='meetContent'>
+            <div className='profile'>
+              <img className='profilePhoto card-1' src='res/profile_.jpg' />
+            </div>
+            <div className='bio'>
+              <h2 className='bioTitle'>
+                Meet Dr. Stephanie Smith
               </h2>
-            <h3 className='bioSubtitle'>
-              Clinical Psychologist
+              <h3 className='bioSubtitle'>
+                Clinical Psychologist
               </h3>
-            {meetSteph}
+              {meetSteph}
+            </div>
           </div>
         </div>
         <div className='practiceAreas' id='practice'>
@@ -608,7 +610,7 @@ const Services = () => {
   return (
     <React.Fragment>
       <PageTitle
-        title='Services'
+        title='Services & Fees'
       />
       <Card1
         shrink={true}
@@ -896,6 +898,7 @@ const classes = (
     <p>
       By the end of the class series participants will be able to recognize opportunities for, prepare for, and make positive changes in their relationships with themselves, food, and their environment.
     </p>
+    <div id="eventbrite-widget-container-81000367279"></div>
   </React.Fragment>
 );
 

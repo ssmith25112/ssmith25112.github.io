@@ -1,6 +1,7 @@
 <html>
 
 <head>
+  <link rel="shortcut icon" href="/dist/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
@@ -10,14 +11,33 @@
   <meta property="og:image" content="http://www.stephaniesmithpsyd.com/dist/thumbnail.png">
   <meta property="og:url" content="http://www.stephaniesmithpsyd.com">
   <meta property="twitter:card" content="summary_large_image">
-  <link rel="shortcut icon" href="/dist/favicon.png" type="image/png">
 </head>
 
 <body>
   <div id='root'></div>
   <script src="./dist/index.js"></script>
+
+
+  <!-- Classes -->
+  <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+
+  <script type="text/javascript">
+    var exampleCallback = function () {
+      console.log('Order complete!');
+    };
+
+    window.EBWidgets.createWidget({
+      widgetType: 'checkout',
+      eventId: '81000367279',
+      iframeContainerId: 'eventbrite-widget-container-81000367279',
+      iframeContainerHeight: 425,
+      onOrderComplete: exampleCallback
+    });
+  </script>
+
   <!-- Professional verification provided by Psychology Today -->
-  <a href="https://www.psychologytoday.com/profile/473076" class="sx-verified-seal" style="position: absolute; left: calc(50% - 93px); bottom: 0;"></a>
+  <a href="https://www.psychologytoday.com/profile/473076" class="sx-verified-seal"
+    style="position: absolute; left: calc(50% - 93px); bottom: 0;"></a>
   <script type="text/javascript" src="https://member.psychologytoday.com/verified-seal.js" data-badge="14"
     data-id="473076"
     data-code="aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy9bQkFER0VdL3Byb2ZpbGUvW1BST0ZJTEVfSURdP2NhbGxiYWNrPXN4Y2FsbGJhY2s="></script>

@@ -19,6 +19,12 @@ body {
   position: relative;
 }
 
+@media screen and (max-width: 900px) {
+  .navMenu {
+    font-size: 16px;
+  }
+}
+
 .backdrop {
   overflow: hidden;
   position: fixed;
@@ -65,11 +71,15 @@ blockquote footer {
   display: flex;
   background-color: #EDEAE5;
   padding: 30px;
+  justify-content: center;
+  align-items: center;
 
 }
 
-
-
+.meetContent {
+  max-width: 975px;
+  display: flex;
+}
 
 .profile {
   display: flex;
@@ -80,7 +90,8 @@ blockquote footer {
 
 .profilePhoto {
   width: 100%;
-  max-width: 450px;
+  max-width: 275px;
+  max-height: 375px;
   min-width: 0;
   min-height: 0;
   object-fit: contain;
@@ -102,9 +113,14 @@ blockquote footer {
   /* padding: 0px 30px; */
 }
 
-@media screen and (max-width: 400px) {
-  .meet {
+@media screen and (max-width: 650px) {
+  .meetContent {
     flex-direction: column;
+  }
+
+  .bio {
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .bio,
