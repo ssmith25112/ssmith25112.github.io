@@ -639,9 +639,11 @@ const Classes = () => {
       />
       <Card1
         shrink={true}
-
         body={classes}
       />
+      <Card2>
+        <ActiveClasses />
+      </Card2>
     </React.Fragment>
 
   );
@@ -898,7 +900,6 @@ const classes = (
     <p>
       By the end of the class series participants will be able to recognize opportunities for, prepare for, and make positive changes in their relationships with themselves, food, and their environment.
     </p>
-    <ActiveClasses />
   </React.Fragment>
 );
 
@@ -1020,11 +1021,17 @@ const Card1 = (props) => {
       </div>
     </div>
   );
-}
+};
 
-
-
-
+const Card2 = (props) => {
+  return (
+    <div
+      className='card card-1'
+    >
+      {props.children}
+    </div>
+  );
+};
 
 const PageTitle = (props) => {
   return (
@@ -1034,7 +1041,7 @@ const PageTitle = (props) => {
       </div>
     </div>
   );
-}
+};
 
 
 class Drawer extends React.Component {
