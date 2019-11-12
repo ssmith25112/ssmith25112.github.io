@@ -898,9 +898,30 @@ const classes = (
     <p>
       By the end of the class series participants will be able to recognize opportunities for, prepare for, and make positive changes in their relationships with themselves, food, and their environment.
     </p>
-    <div id="eventbrite-widget-container-81000367279"></div>
+    <ActiveClasses />
   </React.Fragment>
 );
+
+const ActiveClasses = (props) => {
+  const ref = React.useRef(null);
+  const complete = () => {
+    console.log('Order complete!');
+  };
+
+  React.useEffect(() => {
+    if (ref.current) {
+      window.EBWidgets.createWidget({
+        widgetType: 'checkout',
+        eventId: '81000367279',
+        iframeContainerId: 'eventbrite-widget-container-81000367279',
+        iframeContainerHeight: 425,
+        onOrderComplete: complete
+      });
+    }
+  }, [ref]);
+
+  return <div ref={ref} id="eventbrite-widget-container-81000367279" />
+}
 
 const resources = (
   <React.Fragment>
