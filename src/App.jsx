@@ -642,6 +642,23 @@ const Classes = () => {
         body={classes}
       />
       <Card2>
+        <div className='card-body'>
+          <h3>
+            Mindful Eating: Holiday Edition!
+          </h3>
+          <p>
+            This 1.5 hour class is designed to provide an introduction to the skills needed to healthfully navigate the food obstacle course this holiday season!  Change is possible. We can lay the groundwork today for a much healthier, happier, and liberated tomorrow.
+          </p>
+          <p>
+            Class will cover managing cravings, setting loving limits (with self and others!), and how to enjoy food without overdoing it. By the end of the evening participants will be prepared to explore a new relationship with food; one where shame and guilt have no place.
+          </p>
+          <p>
+            If you've ever wondered if there was a way to get through the season without stressing about holiday eating, this is your time to find out!
+          </p>
+          <p>
+            Register Below!
+          </p>
+        </div>
         <ActiveClasses />
       </Card2>
     </React.Fragment>
