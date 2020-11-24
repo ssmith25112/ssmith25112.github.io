@@ -926,6 +926,12 @@ const resources = (
     <p>
       <a href="https://ggia.berkeley.edu/" target="_blank">Greater Good in Action</a> provides doable practices for making concrete and impactful positive changes
     </p>
+    <p>
+      <a href="http://www.tammylenski.com/" target="_blank">Tammy Lenski</a> is a master of teaching conflict management. Her articles and podcasts are excellent!
+    </p>
+    <p>
+      <a href="https://sacwellness.com/greater-sacramento-area-mental-health-crisis-resources/?fbclid=IwAR1xkYXi-sgOfEDMu2hMzxOvR55TsFUXlZ9oIJ4wmO-a6vBfaA0I-zAOivY" target="_blank">Mental Health Crisis Resources in the Greater Sacramento Area</a>  is a listing regularly updated by the great people at SacWellness. Find options for yourself, or a loved one, in Sacramento or the surrounding areas. 
+    </p>
 
     <h3>Videos</h3>
 
@@ -936,6 +942,7 @@ const resources = (
     <a href="https://youtu.be/IvtZBUSplr4" target="_blank">The Space Between Self-Esteem and Self-Compassion- Kristin Neff</a><br />
     <a href="https://self-compassion.org/videos/" target="_blank">Additional Kristin Neff</a><br />
     <a href="https://www.ted.com/talks/sandra_aamodt_why_dieting_doesn_t_usually_work?utm_campaign=tedspread&utm_medium=referral&utm_source=tedcomshare" target="_blank">Why Dieting Doesn't Usually Work- Sandra Aamodt</a><br />
+    <a href="https://www.ted.com/talks/guy_winch_why_we_all_need_to_practice_emotional_first_aid?language=en" target="_blank">Why We All Need to Practice Emotional First-Aid - Guy Winch</a><br />
 
     <h3>Audio Recordings</h3>
 
